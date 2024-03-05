@@ -18,8 +18,9 @@ from django.contrib import admin
 from django.urls import path
 
 from pages import views
+from pages.views import HomePageView
 
 urlpatterns = [
-    path('', views.home, name='home')
+    path('', HomePageView.as_view(), name='home')
 
 ]
