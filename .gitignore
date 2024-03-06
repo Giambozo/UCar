@@ -174,3 +174,5 @@ cython_debug/
 /media
 
 # End of https://www.toptal.com/developers/gitignore/api/django
+/pages/migrations/
+/db.sqlite3

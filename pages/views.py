@@ -1,11 +1,23 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 
+from cars.models import Car
+from pages.models import Team
 
+from .models import Team
 # Create your views here.
 
-def home(request):
-    return render(request, 'pages/home.html')
-
-class HomePageView(TemplateView):
+class HomePageView(ListView):
+    model = Team
+    model2 = Car.objects.filter(is_featured=True)
     template_name = 'pages/home.html'
+
+class AboutPageView(ListView):
+    model = Team
+    template_name = 'pages/about.html'
+
+class ServicesPageView(TemplateView):
+    template_name = 'pages/services.html'
+
+class ContactPageView(TemplateView):
+    template_name = 'pages/contact.html'
