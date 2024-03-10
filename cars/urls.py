@@ -21,5 +21,6 @@ from cars import views
 
 urlpatterns = [
     path('', views.CarPageView.as_view(), name="cars"),
-    path('detail/<int:pk>/', views.CarSinglePageView.as_view(), name="car_detail")
+    path('detail/<int:pk>/', views.CarSinglePageView.as_view(), name="car_detail"),
+    path('search', views.SearchView.as_view(), name="search")
 ]

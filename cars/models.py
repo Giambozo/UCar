@@ -80,7 +80,8 @@ class Car(models.Model):
     )
 
     car_title = models.CharField(max_length=255)
-    city = models.CharField(choices=state_choice, max_length=100)
+    state = models.CharField(choices=state_choice, max_length=100, default='None')
+    city = models.CharField(max_length=100)
     color = models.CharField(max_length=100)
     model = models.CharField(max_length=100)
     year = models.IntegerField(('year'), choices=year_choice)
