@@ -21,7 +21,10 @@ class CarSinglePageView(DetailView):
 
 class CarsPageView(ListView):
     template_name = 'cars/cars.html'
-    paginator = Paginator(cars, 2)
+    # paginator = Paginator(cars, 2)  # <!--                       AICI             -->
+    model = Car
+
+
     def get_context_data(self, **kwargs):
         context = super(CarsPageView, self).get_context_data(**kwargs)
         context['all_cars'] = Car.objects.all()
@@ -31,13 +34,12 @@ class CarsPageView(ListView):
 class SearchView(ListView):
     model = Car
     template_name = 'cars/search.html'
-    # if 'keyword' in :?
-      #keywod =                                                 <!--                       AICI             -->
-      #car = Car.filter(?)
 
+    # if 'keyword' in :?
+    # keywod =                                                 <!--                       AICI             -->
+    # car = Car.filter(?)
 
     def get_context_data(self, **kwargs):
         context = super(SearchView, self).get_context_data(**kwargs)
         context['all_cars'] = Car.objects.all()
         return context
-

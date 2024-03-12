@@ -4,6 +4,9 @@
 {% block content %}
 
 {% load humanize %}
+from django.core.paginator import Paginator
+    
+    
 <!-- Sub banner start -->
 <div class="sub-banner overview-bgi">
     <div class="container breadcrumb-area">
@@ -26,7 +29,7 @@
             <div class="col-lg-8 col-md-12">
 
                 <div class="row">
-                    {% for cars in all_cars %}   <!--          AICI            -->
+                    {% for car in all_cars %}   <!--          AICI            -->
                     <div class="col-lg-6 col-md-6">
                         <div class="car-box-3">
                             <div class="car-thumbnail">
@@ -72,7 +75,7 @@
                             </div>
                             <div class="detail">
                                 <h1 class="title">
-                                    <a href="cars_detail" >{{car.car_title}}</a>
+                                    <a href="{% url 'car_detail' car.id %}">{{ car.car_title }}</a>
                                 </h1>
                                 <div class="location">
                                     <a href="cars_detail" >
@@ -108,7 +111,7 @@
                             </li>
                           {% endif %}
 
-                          {% for i in cars.paginator.page_range %}
+                          {% for i in cars.paginator.page_range %}                                                           <!--          AICI            -->
                             {% if cars.number == i %}
                               <li class="page-item"><a class="page-link active" href="#">{{i}}</a></li>
                             {% else %}
