@@ -18,10 +18,11 @@ from django.contrib import admin
 from django.urls import path
 
 from pages import views
-from pages.views import HomePageView, AboutPageView, ServicesPageView, ContactPageView
+from pages.views import AboutPageView, ServicesPageView, ContactPageView
 
 urlpatterns = [
-    path('', HomePageView.as_view(), name='home'),
+    path('', views.home, name='home'),
+    # path('', HomePageView.as_view(), name='home'),
     path('about', AboutPageView.as_view(), name='about'),
     path('services', ServicesPageView.as_view(), name='services'),
     path('contact', ContactPageView.as_view(), name='contact'),

@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block title %} |{{ object.car_title}} {% endblock %}
+{% load static %}
 {% block content %}
 
     {% load humanize %}
@@ -211,7 +213,7 @@
                         <div class="modal-content">
                           <div class="contact-dealer modal-header">
                             <!-- <h5 class="modal-title" id="inquiryModalLabel">Contact Dealer</h5> -->
-                            <img src="img/logos/logo-black-white.png">
+                            <img src="{% static 'img/logos/logo-black-white.png' %}">
                             <button type="button" class="close" data-dismiss="modal">
                               <span>&times;</span>
                             </button>

@@ -20,7 +20,9 @@ from django.urls import path
 from cars import views
 
 urlpatterns = [
-    path('', views.CarsPageView.as_view(), name="cars"),
-    path('detail/<int:pk>/', views.CarSinglePageView.as_view(), name="car_detail"),
-    path('search', views.SearchView.as_view(), name="search")
+    # path('', views.CarsPageView.as_view(), name="cars"),
+    path('', views.cars, name='cars'),
+    path('<int:pk>', views.CarSinglePageView.as_view(), name="car_detail"),
+    path('search', views.search, name="search"),
+    #path('search', views.SearchView.as_view(), name="search")
 ]
