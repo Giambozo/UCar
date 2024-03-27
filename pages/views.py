@@ -52,3 +52,5 @@ def home(request):
         'body_style_search': body_style_search,
     }
     return render(request, 'pages/home.html', data)
+
+
